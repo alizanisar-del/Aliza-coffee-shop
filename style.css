@@ -1,0 +1,614 @@
+:root {
+    /* New Color Scheme */
+    --color-bg-dark: #231713;
+    /* Deep Coffee */
+    --color-bg-light: #F5EFEB;
+    /* Soft Latte Beige */
+    --color-accent-gold: #D4AF37;
+    /* Metallic Gold */
+
+    --color-brown-soft: #A67B5B;
+    /* Keep for secondary brown */
+    --color-brown-dark: #3E2F28;
+    /* Darker brown for text */
+    --color-cream: #FDF5E6;
+    --color-gray-coffee: #4B4B4B;
+    --color-text: #2C1E16;
+    /* Deep brown text for better contrast on beige */
+    --color-white: #FFFFFF;
+
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+
+    --transition: all 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-bg-light);
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-heading);
+    color: var(--color-bg-dark);
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Utilities */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+.bg-light {
+    background-color: var(--color-cream);
+}
+
+.bg-cream {
+    background-color: #f7f3e8;
+}
+
+.flex-row {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--color-accent-gold);
+    color: var(--color-white);
+    border: 2px solid var(--color-accent-gold);
+    border-radius: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn:hover {
+    /* Button hover */
+    background-color: transparent;
+    color: var(--color-accent-gold);
+    transform: translateY(-2px);
+}
+
+.btn-sm {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: var(--color-gray-coffee);
+    color: var(--color-white);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.btn-sm:hover {
+    background-color: var(--color-brown-soft);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: var(--color-bg-dark);
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: #777;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+
+    z-index: 1000;
+    background-color: var(--color-bg-dark);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-accent-gold);
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-bg-light);
+    /* Light text on dark header */
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--color-accent-gold);
+    transition: var(--transition);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Hero Section */
+#hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://placehold.co/1920x1080/4B4B4B/FFFFFF?text=Hero+Background-Coffee+Shop') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-white);
+    padding-top: 80px;
+    /* Header offset */
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    color: var(--color-white);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeInDown 1s ease-out;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.hero-content .btn {
+    animation: fadeInUp 1s ease-out 1s both;
+}
+
+/* About Section */
+.about-text {
+    flex: 1;
+}
+
+.about-image {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.about-image img {
+    transition: transform 0.5s ease;
+}
+
+.about-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Cards (Special Offers & Products) */
+.card,
+.product-card,
+.soon-card {
+    background: var(--color-white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+.card:hover,
+.product-card:hover,
+.soon-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card-img,
+.product-card img,
+.soon-card img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-body,
+.product-card,
+.soon-card {
+    padding: 20px;
+    text-align: center;
+}
+
+.price {
+    font-weight: 700;
+    color: var(--color-accent-gold);
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-weight: 400;
+    font-size: 0.9rem;
+    margin-left: 10px;
+}
+
+/* Gallery Section */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    height: 300px;
+}
+
+.gallery-item img {
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-desc {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 15px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-desc {
+    transform: translateY(0);
+}
+
+.gallery-desc h4 {
+    color: var(--color-cream);
+    margin: 0;
+}
+
+/* Picture Parallax Section */
+#picture-section {
+    height: 400px;
+    background: url('https://placehold.co/1920x600/6F4E37/FFFFFF?text=Coffee+Art+Background') no-repeat center center/cover;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.parallax .overlay {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 40px;
+    border: 2px solid var(--color-white);
+    color: var(--color-white);
+}
+
+.parallax h2 {
+    color: var(--color-white);
+    margin: 0;
+    font-size: 3rem;
+    letter-spacing: 2px;
+}
+
+/* Reviews */
+.review-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.review-card {
+    background: var(--color-white);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.stars {
+    color: #FFD700;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.review-card p {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+/* Delivery Banner */
+.delivery-banner {
+    background-color: var(--color-bg-dark);
+    color: var(--color-accent-gold);
+    padding: 40px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.delivery-text h2 {
+    color: var(--color-accent-gold);
+}
+
+.delivery-icon {
+    color: var(--color-accent-gold);
+    animation: drive 2s infinite ease-in-out;
+}
+
+@keyframes drive {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Footer */
+footer {
+    background-color: var(--color-bg-dark);
+    color: var(--color-bg-light);
+    padding: 50px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.footer-col h3 {
+    color: var(--color-accent-gold);
+    margin-bottom: 20px;
+}
+
+.socials a {
+    color: var(--color-white);
+    font-size: 1.5rem;
+    margin-right: 15px;
+}
+
+.socials a:hover {
+    color: var(--color-accent-gold);
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-bg-dark);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+        color: var(--color-accent-gold);
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .flex-row {
+        flex-direction: column;
+    }
+
+    #picture-section h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Contact Section */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.info-item {
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 20px;
+    background: var(--color-white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.info-item i {
+    font-size: 2rem;
+    color: var(--color-accent-gold);
+    margin-bottom: 15px;
+}
+
+.info-item h3 {
+    margin-bottom: 10px;
+    color: var(--color-bg-dark);
+}
+
+.contact-form {
+    flex: 1.5;
+    min-width: 300px;
+    background: var(--color-white);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    background-color: var(--color-bg-light);
+    color: var(--color-text);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent-gold);
+}
+
+/* Ensure white backgrounds in cards have correct contrast if main bg is beige */
+.card,
+.product-card,
+.soon-card,
+.review-card,
+.info-item,
+.contact-form,
+.gallery-item {
+    background-color: var(--color-white);
+    /* Keep white cards for contrast against beige body */
+}
